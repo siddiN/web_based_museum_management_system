@@ -3,6 +3,7 @@ Museum Management System is a simple web-based project developed using PHP, HTML
 Visitors can book their visit slots online and explore the museum’s artifacts. At the end of their visit, they can participate in quizzes based on different collectors. All backend operations like bookings, artifacts, and evaluations are handled by the Admin.
 
 Features
+
 👩‍💼 Admin
 Add, edit, and delete artifacts
 
