@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prior Booking - Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background:whitesmoke;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color:black;
+        }
+
+        header {
+            background-color:#800080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+            position: absolute;
+            left: 10px;
+        }
+
+        .container {
+            background:  #D8BFD8;
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.2);
+            color:black;
+        }
+
+        .btn {
+            background:#800080;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+
+        .decorative-line {
+            width: 60px;
+            height: 5px;
+            background: #f39c12;
+            margin: 0 auto 20px;
+            border-radius: 3px;
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #800080;
+            color: white;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo7.png" alt="Museum Logo" class="logo">
+        <h1>KBL MUSEUM</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="title">Booking</h2>
+        <div class="decorative-line"></div>
+        <p class="description">Plan your visit to our museum by selecting the details below. We look forward to welcoming you!</p>
+        <form action="process_booking.php" method="post">
+            <label for="visitor-type">Visitor Type:</label>
+            <select name="visitor_type" id="visitor-type" required>
+                <option value="">--Select--</option>
+                <option value="Individual">Individual</option>
+                <option value="Family">Family</option>
+                <option value="Group of Students">Group of Students</option>
+                <option value="Corporate Team">Corporate Team</option>
+                <option value="Friends Group">Friends Group</option>
+            </select>
+
+            <label for="members">Number of Members:</label>
+            <input type="number" name="members" id="members" min="1" required placeholder="Enter the number of people">
+
+            <label for="date">Visit Date:</label>
+            <input type="date" name="date" id="date" required>
+
+            <label for="time-slot">Preferred Time Slot:</label>
+            <select name="time_slot" id="time-slot" required>
+                <option value="">--Select--</option>
+                <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
+                <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+            </select>
+
+            <button type="button" class="btn" onclick="validateAndCalculateTotal()">Calculate Total</button>
+            <div class="total-amount" id="totalAmount">Total Amount: ₹0</div>
+            <button type="button" class="pay-btn" id="payButton" onclick="proceedToPayment()">Proceed to Payment</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Museum Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateAndCalculateTotal() {
+            const visitorType = document.getElementById('visitor-type').value;
+            const members = document.getElementById('members').value;
+            const date = document.getElementById('date').value;
+            const timeSlot = document.getElementById('time-slot').value;
+
+            if (!visitorType || !members || !date || !timeSlot) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const memberFee = 150;
+            const totalAmount = members * memberFee;
+            document.getElementById('totalAmount').textContent = `Total Amount: ₹${totalAmount}`;
+            document.getElementById('payButton').style.display = 'block';
+        }
+
+        function proceedToPayment() {
+            const totalAmount = document.getElementById('totalAmount').textContent.replace('Total Amount: ₹', '');
+            window.location.href = `payment.html?totalAmount=${totalAmount}`;
+        }
+    </script>
+</body>
+</html>

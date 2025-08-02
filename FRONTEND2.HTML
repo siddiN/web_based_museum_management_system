@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        html, body {
+            height: 175%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            font-family:'Anton', sans-serif;
+           
+        }
+
+        .navbar-brand img {
+    height: 56px; /* Adjust size as needed */
+    width: auto;
+    margin-left: 2px;
+    text-align: center;
+    image-rendering: auto;
+    
+}
+
+        body > *:not(footer) {
+            flex: 1;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            color:whitesmoke!important;
+            font-size: 2.5em;
+            font-weight: bold;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .nav-link {
+            color: whitesmoke !important;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #069e9e !important;
+        }
+
+        .carousel-item {
+            height: 400px;
+        }
+        .carousel-item img {
+            height: 100%;
+            object-fit: cover;
+        }
+        .tile {
+            background-color: whitesmoke;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .tile:hover {
+            transform: scale(1.05);
+        }
+        .venue-info, .map-container {
+            background-color:#D8BFD8;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            padding: 20px;
+            height: 300px;
+            font-family: 'satisfy', cursive;
+        }
+        .venue-info:hover, .map-container:hover {
+            transform: scale(1.05);
+        }
+        .map-container iframe {
+            border-radius: 10px;
+            height: 220px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .tile-container {
+            background-color:#D8BFD8;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color:#800080;
+            color:white;
+            text-align:center;
+            padding: 10px 0;
+            width: 100%;
+           
+        }
+        .logo {
+            width: 70px;
+            height:auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background --> 
+    <div class="video-background">
+        <video autoplay muted loop> 
+        <source src="m2.mp4.mp4" type="video/mp4"> 
+        Your browser does not support HTML5 video.
+     </video> </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #800080;">
+        
+        <a class="navbar-brand" href="Homepage.html">
+            <img src="logo7.png" alt="Museum Logo" > KBL MUSEUM
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </div>
+		
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="FRONTEND2.HTML">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="q.html">Quiz</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="artificat.html">Artefact Collection</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        
+    </nav>
+
+    <!-- Venue Information and Map Section -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="venue-info">
+                    <h2 style="color:black;">Welcome</h2>
+                    <p style="color: black;">Welcome to the Karnataka Bank Museum, a unique institution dedicated to preserving and showcasing the rich history of banking in Karnataka and the remarkable story of Karnataka Bank.  Explore our exhibits and discover the evolution of financial services, the impact of banking on our communities, and the enduring values that have guided Karnataka Bank for [Number] years.".</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="map-container">
+                    <h4 style="color: black;">Locate Us</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3894.1234567890!2d73.9500000!3d15.2500000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb1234567890%3A0xabcdef1234567890!2sGoa%20Chitra%20Museum!5e0!3m2!1sen!2sin!4v1694270482995!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiles Section -->
+    <section class="container my-5 text-center tile-container">
+     
+        <video autoplay muted loop width="500" height="60"> 
+        <source src="to.mp4" type="video/mp4"> 
+        Your browser does not support HTML5 video.
+     </video> 
+        <div class="row text-center mt-4">
+            <div class="col-md-4">
+                <div class="tile p-4" style="height: 300px;">
+                    <img src="fron3.jpg" alt="Vibe" class="img-fluid rounded" style="height: 250px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tile p-4" style="height: 300px;">
+                    <img src="fron1.jpg" alt="Service" class="img-fluid rounded" style="height: 250px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="tile p-4" style="height: 300px;">
+                    <img src="6.jpg" alt="Moments" class="img-fluid rounded" style="height: 250px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rating Section -->
+    <section class="container my-5 text-center">
+        <div class="rating-section">
+            <div class="stars" style="font-size: 2.5em; color: #FFD700;">
+                ★ ★ ★ ★ ★
+            </div>
+            <p style="font-size: 5; font-weight: darker; margin-top: 10px; color:#D8BFD8";>
+               "A place to explore the world"
+            </p>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 KBL Museum. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

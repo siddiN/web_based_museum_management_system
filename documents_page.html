@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome for Icons -->
+
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            background: #800080;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* MENU ICON & LOGO */
+        .left-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        /* H1 - CENTERED */
+        .header h1 {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        /* ADMIN LOGIN ICON */
+        .admin-login {
+            font-size: 50px; /* Icon size */
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            position: absolute; /* Positioning it to the top-right of the header */
+            right: 20px;
+        }
+
+        .admin-login:hover {
+            color: darkgreen; /* Change icon color on hover */
+        }
+
+        /* SIDE MENU DROPDOWN */
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 250px;
+            height: calc(100vh - 50px);
+            background: #800080;
+            padding: 20px;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 15px 0;
+            display: block;
+            border-bottom: 1px solid #9a009a;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            background: #6a006a;
+            border-radius: 5px;
+        }
+
+        /* CONTENT SECTION */
+        .content {
+            margin-top: 100px; /* Adjust to prevent overlap with fixed header */
+            padding: 20px;
+            flex-grow: 1; /* Ensures content takes up remaining space */
+        }
+
+        /* IMAGE CONTAINER */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .document-item {
+            width: 30%;
+            height: auto;
+            min-height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .document-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .document-item img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Description Styling */
+        .document-item .description {
+            padding: 15px;
+            font-size: 19px; /* Increased font size */
+            color: #0c010c;
+            background: #f9f9f9;
+            border-top: 2px solid #800080;
+            height: auto; /* Adjusted height to allow content to grow */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            overflow: hidden;
+            flex-grow: 1; /* Ensures description takes up remaining space */
+        }
+
+        /* FOOTER */
+        .footer {
+            width: 100%;
+            background: #800080;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media screen and (max-width: 768px) {
+            .header {
+                flex-direction: row;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .admin-login {
+                font-size: 20px; /* Adjust icon size on mobile */
+                right: 10px;
+            }
+
+            .menu {
+                width: 100%;
+                height: auto;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .document-item {
+                width: 80%;
+                height: auto;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="left-header">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <img src="logo6.png" alt="Logo" class="logo"> <!-- Update with your logo path -->
+        </div>
+        <h1>KBL MUSEUM - Documents</h1>
+        <!-- Admin Login Icon -->
+        <a href="admin_login.php" class="admin-login">
+            <i class="fas fa-user-shield"></i> <!-- Font Awesome icon for admin login -->
+        </a>
+    </header>
+
+    <!-- MENU -->
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Artifacts</a>
+        <a href="#">Booking</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="container">
+            <!-- First Row of Image Containers (Documents) -->
+            <div class="document-item">
+                <img src="d1.jpg" alt="Document 1">
+                <div class="description">Document 1 - Historical Artifact</div>
+            </div>
+            <div class="document-item">
+                <img src="d2.jpg" alt="Document 2">
+                <div class="description">Document 2 - Cultural Preservation</div>
+            </div>
+            <div class="document-item">
+                <img src="d3.jpg" alt="Document 3">
+                <div class="description">Document 3 - Preservation of History</div>
+            </div>
+
+            <!-- Second Row of Image Containers -->
+            <div class="document-item">
+                <img src="d4.jpg" alt="Document 4">
+                <div class="description">Document 4 - Significant Milestones</div>
+            </div>
+            <div class="document-item">
+                <img src="d5.jpg" alt="Document 5">
+                <div class="description">Document 5 - Educational Importance</div>
+            </div>
+            <div class="document-item">
+                <img src="d6.jpg" alt="Document 6">
+                <div class="description">Document 6 - Cultural Evolution</div>
+            </div>
+
+            <!-- Third Row of Image Containers -->
+            <div class="document-item">
+                <img src="d2.jpg" alt="Document 7">
+                <div class="description">Document 7 - Historical Records</div>
+            </div>
+            <div class="document-item">
+                <img src="d3.jpg" alt="Document 8">
+                <div class="description">Document 8 - Artifacts of the Past</div>
+            </div>
+            <div class="document-item">
+                <img src="d1.jpg" alt="Document 9">
+                <div class="description">Document 9 - Cultural Preservation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2025 KBL Museum. All rights reserved.</p>
+        
+    </footer>
+
+</body>
+</html>

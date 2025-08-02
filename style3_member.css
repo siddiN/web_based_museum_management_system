@@ -1,0 +1,144 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the body takes the full viewport height */
+    margin: 0;
+}
+
+/* Header Navigation */
+header {
+    background-color: #800080;
+    color: white;
+    padding: 15px;
+    width: 100%; /* Ensure the header spans the full width */
+    display: flex;
+    align-items: center; /* Vertically center items */
+    position: fixed; /* Fix the header at the top */
+    top: 0; /* Position at the top */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Logo in the header */
+header .logo {
+    height: 50px; /* Adjust the height of the logo */
+    margin-left: 20px; /* Add some spacing from the left edge */
+}
+
+/* Header text centered */
+header h1 {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav {
+    display: none; /* Hide navigation if not needed */
+}
+
+/* Form Section */
+.form {
+    padding: 30px;
+    background-color: white;
+    max-width: 800px;
+    width: 100%; /* Ensure the form takes the full width within the max-width */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Add some margin for spacing */
+    margin-top: 100px; /* Add margin to avoid overlap with the fixed header */
+}
+
+.form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Form Elements */
+form {
+    display: grid;
+    grid-gap: 15px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="date"],
+select {
+    font-size: 1rem;
+}
+
+textarea {
+    font-size: 1rem;
+    resize: vertical;
+}
+
+/* Button Styling */
+button {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Footer */
+footer {
+    background-color: #800080;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.button-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+}

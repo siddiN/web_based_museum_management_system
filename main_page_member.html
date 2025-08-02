@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: whitesmoke;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
+        /* Header Navigation */
+        header {
+            background-color: #800080;
+            color: white;
+            padding: 10px;
+            width: 100%; /* Ensure the header spans the full width */
+            display: flex;
+            align-items: center; /* Vertically center items */
+            position: fixed; /* Fix the header at the top */
+            top: 0; /* Position at the top */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+
+        /* Logo in the header */
+        header .logo {
+            height: 50px; /* Adjust the height of the logo */
+            margin-left: 20px; /* Add some spacing from the left edge */
+        }
+
+        /* Header text centered */
+        header h1 {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header nav {
+            display: none; /* Hide navigation if not needed */
+        }
+        .container {
+            width: 90%;
+            margin: 100px auto 50px; /* Adjusted margin to account for header */
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button, .btn {
+            background-color:#800080 ;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button:hover, .btn:hover {
+            background-color: #0056b3;
+        }
+        /* Footer */
+        footer {
+            background-color: #800080;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        // JavaScript Validation Function
+        function validateForm() {
+            const memberName = document.getElementById('memberName').value;
+
+            // Regex pattern for validation
+            const namePattern = /^[a-zA-Z\s]+$/;
+
+            // Validate "Member Name" field
+            if (!memberName.match(namePattern)) {
+                alert("Member Name should only contain letters and spaces.");
+                return false;
+            }
+
+            return true; // If all validation passes, allow form submission
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo7.png" alt="Logo" class="logo">
+        <h1>KBL MUSEUM</h1>
+    </header>
+
+    <div class="container">
+        <h2>Members Details</h2>
+        <form method="POST" action="insert_member.php" onsubmit="return validateForm()">
+            <!-- Object ID Field -->
+            <div class="form-group">
+                <label for="objectId">Object ID:</label>
+                <input type="number" id="objectId" name="objectId" required>
+            </div>
+
+            <!-- Member Name Field -->
+            <div class="form-group">
+                <label for="memberName">Member Name:</label>
+                <input type="text" id="memberName" name="memberName" required>
+            </div>
+
+            <!-- Date Field -->
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <button type="submit">Submit Member Details</button>
+            <a href="view_members.php" class="btn">View Member Details</a>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 KBL Museum. All rights reserved.</p>
+    </footer>
+</body>
+</html>

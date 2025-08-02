@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        header {
+            background: #800080;
+            color: white;
+            align-items: center;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            display: flex;
+            z-index: 1000;
+        }
+        header { top: 0; }
+        footer { bottom: 0; }
+        .logo { width: 80px; height: auto; }
+        .form-container {
+            background:#D8BFD8;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .header h1 {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+            margin: 0;
+        }
+        footer {
+            background-color:#800080;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .btn {
+            background:#800080 ;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn:hover { background: #2980b9; }
+
+        .form-container a.btn {
+    display: inline-flex;      /* Put arrow and text on the same line */
+    align-items: center;
+    justify-content: center;
+    gap: 6px;                  /* Spacing between arrow and text */
+    width: auto !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+    text-decoration: none;     /* Remove underline (if any) */
+    margin-right: 500px;
+}
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="left-header">
+            <img src="logo7.png" alt="Logo" class="logo"> <!-- Update with your logo path -->
+        </div>
+        <h1>KBL MUSEUM </h1>
+    </header>
+
+    <div class="form-container">
+         <!-- New Back Button -->
+         <a href="FRONTEND2.HTML" class="btn" style="margin-bottom:3px;">&larr; Back</a>
+        <h2>Visitor Registration</h2>
+       
+
+        <form id="visitorForm" action="visubmit.php" method="POST">  <!-- FIXED: Added id="visitorForm" -->
+            <input type="text" id="name" name="name" placeholder="Visitor Name" required> <!-- FIXED: Added id -->
+            <input type="tel" id="contact" name="contact" placeholder="Contact No" required> <!-- FIXED: Added id -->
+
+            <small>Password must be at least 6 characters long</small>
+            <input type="password" id="password" name="password"  placeholder="password" required>
+            
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="confirm password" required>
+    
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Museum Management System</p>
+    </footer>
+
+    <!-- FIXED: Script should be here -->
+    <script src="vis_script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color:whitesmoke;
+    color:black;
+    line-height: 1.6;
+}
+
+/* Header Navigation */
+header {
+    background-color:#800080;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Maintenance Form Section */
+.maintenance-form {
+    padding: 30px;
+    background-color:#D8BFD8;
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.maintenance-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Form Elements */
+form {
+    display: grid;
+    grid-gap: 15px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="date"], select {
+    font-size: 1rem;
+}
+
+textarea {
+    font-size: 1rem;
+    resize: vertical;
+}
+
+/* Button Styling */
+button {
+    background-color:#800080;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Footer */
+footer {
+    background-color:#800080;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.button-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #800080; /* Button background color */
+    color: white; /* Text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.button-link:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Delete Button */
+.delete-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+.logout-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+   
+}
+
+.logout-btn:hover {
+    background-color: darkgreen;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 0;
+    left:95%;
+    transform: translateX(-50%);
+    background: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    
+}    

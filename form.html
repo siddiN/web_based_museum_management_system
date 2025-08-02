@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance History Form</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        header {
+            background-color:#800080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+            position: absolute;
+            left: 10px;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 1px;
+            background-color:blue;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: block;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            const artifactName = document.getElementById('artifact-name').value;
+            const maintenanceDate = document.getElementById('maintenance-date').value;
+            const maintenanceType = document.getElementById('maintenance-type').value;
+            const status = document.getElementById('status').value;
+            const details = document.getElementById('details').value;
+
+            const artifactNamePattern = /^[a-zA-Z\s]+$/;
+            if (!artifactName.match(artifactNamePattern)) {
+                alert("Artifact Name should only contain letters.");
+                return false;
+            }
+
+            if (maintenanceDate === "") {
+                alert("Please select a valid Maintenance Date.");
+                return false;
+            }
+
+            if (details.trim() === "") {
+                alert("Please provide Maintenance Details.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo7.png" alt="Museum Logo" class="logo">
+        <h1>KBL MUSEUM</h1>
+        <a href="logout.php"><button class="logout-btn">Logout</button></a>
+    </header>
+
+    <section class="maintenance-form">
+        <h2>Maintenance History</h2>
+        <form action="insert.php" method="POST" onsubmit="return validateForm()">
+            <label for="artifactname">Artifact Name:</label>
+            <input type="text" id="artifact-name" name="artifact_name" required>
+
+            <label for="maintenanceDate">Maintenance Date:</label>
+            <input type="date" id="maintenance-date" name="maintenanceDate" required>
+
+            <label for="maintenanceType">Maintenance Type:</label>
+            <select id="maintenance-type" name="maintenanceType" required>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Reframing">Re-framing</option>
+                <option value="Repair">Repair</option>
+                <option value="Polishing">Polishing</option>
+            </select>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Completed">Completed</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Pending">Pending</option>
+            </select>
+
+            <label for="details">Maintenance Details:</label>
+            <textarea id="details" name="details" rows="4" required></textarea>
+
+            <button type="submit">Submit Maintenance Record</button>
+        </form><br><br>
+        <a href="read.php" class="button-link">View Recent Maintenance History</a>
+    </section><br><br>
+
+    <footer>
+        <p>&copy; 2024 Museum Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
