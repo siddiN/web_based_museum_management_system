@@ -28,4 +28,3 @@ View booking history
 
 Participate in collector-based exit quizzes
 
-<img width="1880" height="921" alt="Screenshot 2025-08-02 134924" src="https://github.com/user-attachments/assets/26e49891-cfef-4fc9-806f-d420d09c8660" />
