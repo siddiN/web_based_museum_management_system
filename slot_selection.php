@@ -48,7 +48,7 @@ $slots = ['10:00 AM', '11:30 AM', '2:00 PM', '3:30 PM'];
     <div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
       <!-- Back Button -->
       <div class="mb-4">
-        <a href="FRONTEND2.HTML" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+        <a href="Main.HTML" class="inline-block bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
           &larr; Back
         </a>
       </div>
@@ -117,3 +117,4 @@ $slots = ['10:00 AM', '11:30 AM', '2:00 PM', '3:30 PM'];
   </script>
 </body>
 </html>
+
