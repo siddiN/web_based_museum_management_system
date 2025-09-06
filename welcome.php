@@ -201,7 +201,7 @@ if (!isset($_SESSION['username'])) {
         </div>
         <h2>KBL MUSEUM</h2>
         <div class="menu">
-            <a href="FRONTEND2.HTML">Home</a>
+            <a href="Main.HTML">Home</a>
             <a href="booking.html">Booking</a>
             <a href="artificat.html">Artifact</a>
             <a href="aboutus.html">About Us</a>
@@ -225,4 +225,5 @@ if (!isset($_SESSION['username'])) {
     </footer>
 
 </body>
+
 </html>
